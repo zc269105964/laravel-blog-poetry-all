@@ -146,7 +146,7 @@
                 <ul>
                     <li></li>
                     <li>
-                        <a href="http://www.beian.miit.gov.cn" class="text-secondary" target="_blank">{{$configs['base.website_keep']}}</a>
+                        <a href="https://beian.miit.gov.cn" class="text-secondary" target="_blank">{{$configs['base.website_keep']}}</a>
                     </li>
                     <li></li>
                 </ul>
