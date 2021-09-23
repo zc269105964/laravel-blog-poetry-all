@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\home;
+namespace App\Http\Controllers\Home;
 
 use App\Http\Requests\StoreArticleMsgPost;
 use App\Models\BlogMessage;
@@ -58,27 +58,33 @@ class ArticleDetailController extends Controller
             return response()->json($result);
         }
 
+        $message_review = config('base.message_review');
+
         $blogModel                   = new BlogMessage();
         $blogModel->msg_content      = $msg_content;
         $blogModel->msg_blog_name    = $msg_blog_name;
         $blogModel->msg_blog_link    = $msg_blog_link;
         $blogModel->msg_blog_contact = $msg_blog_contact;
         $blogModel->msg_ip           = $request->getClientIp();
-        $blogModel->msg_show         = 1;
+        $blogModel->msg_show         = 1 == $message_review ? 0 : 1;
         $blogModel->msg_type         = $msg_type;
         $blogModel->foreign_id       = $foreign_id;
         $blogModel->save();
-        //获取留言的背景色
-        $bg_arr = define_background();
-        if ($msg_type == 3) {
-            $mas_div = '<div class="card" data-background="color" data-color="' . $bg_arr[rand(0, 5)] . '"><div class="card-body"><div class="author"><a href="' . $msg_blog_link . '" target="_blank"><img src="' . asset(__STATIC_HOME__) . '/assets/img/qqhead.png" alt="..." class="avatar img-raised"><span>' . $msg_blog_name . '</span></a></div><span class="category-social pull-right"><i class="fa fa-quote-right"></i></span><div class="clearfix"></div><p class="card-description">“' . $msg_content . '”</p></div></div>';
-        } else {
-            $mas_div = '<div class="col-sm-12 ml-auto"><div class="card" data-background="color" data-color="' . $bg_arr[rand(0, 5)] . '"><div class="card-body"><div class="author"><a href="' . $msg_blog_link . '" target="_blank"><img src="' . asset(__STATIC_HOME__) . '/assets/img/qqhead.png" alt="..." class="avatar img-raised"><span>' . $msg_blog_name . '</span></a></div><span class="category-social pull-right"><i class="fa fa-quote-right"></i></span><div class="clearfix"></div><p class="card-description">“' . $msg_content . '”</p></div></div></div>';
+
+        if(!$message_review) {
+            //获取留言的背景色
+            $bg_arr = define_background();
+            if ($msg_type == 3) {
+                $mas_div = '<div class="card" data-background="color" data-color="' . $bg_arr[rand(0, 5)] . '"><div class="card-body"><div class="author"><a href="' . $msg_blog_link . '" target="_blank"><img src="' . asset(__STATIC_HOME__) . '/assets/img/qqhead.png" alt="..." class="avatar img-raised"><span>' . $msg_blog_name . '</span></a></div><span class="category-social pull-right"><i class="fa fa-quote-right"></i></span><div class="clearfix"></div><p class="card-description">“' . $msg_content . '”</p></div></div>';
+            } else {
+                $mas_div = '<div class="col-sm-12 ml-auto"><div class="card" data-background="color" data-color="' . $bg_arr[rand(0, 5)] . '"><div class="card-body"><div class="author"><a href="' . $msg_blog_link . '" target="_blank"><img src="' . asset(__STATIC_HOME__) . '/assets/img/qqhead.png" alt="..." class="avatar img-raised"><span>' . $msg_blog_name . '</span></a></div><span class="category-social pull-right"><i class="fa fa-quote-right"></i></span><div class="clearfix"></div><p class="card-description">“' . $msg_content . '”</p></div></div></div>';
+            }
         }
+
         $result = array(
             'status' => 1,
-            'msg'    => '留言成功',
-            'result' => $mas_div
+            'msg'    => '留言成功，等待审核',
+            'result' => $mas_div ?? ''
         );
         return response()->json($result);
     }

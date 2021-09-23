@@ -171,12 +171,14 @@
         </div>
     </div>
     <script type="text/javascript">
+        var message_review = {{$configs['base.message_review']}};
+
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        
+
         $(function () {
             markdown();
         });
@@ -201,7 +203,7 @@
                 }).reset();
             });
         }
-        
+
         $("#submit_msg").click(function(){
             var msg_content = $("#msg_content").val();
             var msg_blog_name = $("input[name='msg_blog_name']").val();
@@ -222,8 +224,9 @@
                 success: function (data) {
                     layer.closeAll();
                     layer.msg(data.msg);
-                    var msg_div = data.result;
-                    append_msg_content(msg_div);
+                    if(!message_review) {
+                        append_msg_content(data.result);
+                    }
                 },
                 error: function (data) {
                     layer.closeAll();

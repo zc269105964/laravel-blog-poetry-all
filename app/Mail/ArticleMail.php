@@ -35,7 +35,7 @@ class ArticleMail extends Mailable
         $article_title = $this->article->getAttributeValue('article_title');
         $aid           = $this->article->getAttributeValue('id');
         return $this
-            ->from('1549684884@qq.com', '雷勇')
+            ->from('269105964@qq.com', '张昌')
             ->subject(config('base.website_title') . '-订阅文章更新-' . date('Y-m-d'))
             ->view('mail.index')
             ->with([

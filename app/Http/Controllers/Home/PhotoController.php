@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\home;
+namespace App\Http\Controllers\Home;
 
 use App\Models\BlogNavPhoto;
 use Illuminate\Http\Request;

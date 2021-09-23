@@ -127,6 +127,8 @@
     </div>
     <input type="hidden" name="video_url" value="{{asset('storage/app/public/'.str_replace('_','/',$video_result->video_link))}}">
     <script>
+        var message_review = {{$configs['base.message_review']}};
+
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -169,8 +171,9 @@
                 success: function (data) {
                     layer.closeAll();
                     layer.msg(data.msg);
-                    var msg_div = data.result;
-                    append_msg_content(msg_div);
+                    if(!message_review) {
+                        append_msg_content(data.result);
+                    }
                 },
                 error: function (data) {
                     layer.closeAll();

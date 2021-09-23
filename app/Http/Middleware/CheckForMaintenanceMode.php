@@ -13,7 +13,9 @@ class CheckForMaintenanceMode extends Middleware
      * @var array
      */
     protected $except = [
-        'http://www.qqphp.com/admin',
-        'http://www.qqphp.com/admin/*'
+        'http://blog.ds520.love/admin',
+        'http://blog.ds520.love/admin/*',
+        'http://ds520.love/admin',
+        'http://ds520.love/admin/*'
     ];
 }
