@@ -43,7 +43,7 @@
                 <li class="nav-item">
                     <a href="{{url('article')}}">
                         <button type="button" class="btn btn-sm btn-info btn-round">
-                            <i class="fa fa-heart"></i>进入博客
+                            <i class="fa fa-heart"></i>博客
                         </button>
                     </a>
                 </li>
@@ -52,21 +52,20 @@
     </div>
 </nav>
 <!-- 导航栏结束 -->
-<div class="page-header section-dark" style="background-image: url('{{__STATIC_HOME__}}/assets/img/trisomy.jpg')">
+<div class="page-header section-dark" style="background-image: url('{{__STATIC_HOME__}}/assets/img/login.jpg')">
     <div class="filter"></div>
     <div class="content-center">
         <div class="container">
             <div class="title-brand">
-                <h1 class="presentation-title">偶成</h1>
+{{--                <h1 class="presentation-title">偶成</h1>--}}
                 <div class="fog-low">
-                    <img src="{{__STATIC_HOME__}}/assets/img/fog-low.png" alt="">
+{{--                    <img src="{{__STATIC_HOME__}}/assets/img/fog-low.png" alt="">--}}
                 </div>
                 <div class="fog-low right">
-                    <img src="{{__STATIC_HOME__}}/assets/img/fog-low.png" alt="">
+{{--                    <img src="{{__STATIC_HOME__}}/assets/img/fog-low.png" alt="">--}}
                 </div>
             </div>
-            <h2 class="presentation-subtitle text-center">少年易老学难成，一寸光阴不可轻。</h2>
-            <h2 class="presentation-subtitle text-center">未觉池塘春草梦，阶前梧叶已秋声。 </h2>
+            <h2 class="presentation-subtitle text-center">会当凌绝顶，一览众山小。</h2>
         </div>
     </div>
     <div class="moving-clouds" style="background-image: url('{{__STATIC_HOME__}}/assets/img/clouds.png'); "></div>

@@ -128,7 +128,7 @@
                 <li class="nav-item">
                     <a href="/">
                         <button type="button" class="btn btn-sm btn-info btn-round">
-                            <i class="fa fa-heart"></i>博客主页
+                            <i class="fa fa-heart"></i>主页
                         </button>
                     </a>
                 </li>
