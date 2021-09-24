@@ -120,11 +120,11 @@
                         优秀博客
                     </a>
                 </li>
-                <li class="dropdown nav-item">
-                    <a class="nav-link" href="{{url('about')}}">
-                        关于我
-                    </a>
-                </li>
+{{--                <li class="dropdown nav-item">--}}
+{{--                    <a class="nav-link" href="{{url('about')}}">--}}
+{{--                        关于我--}}
+{{--                    </a>--}}
+{{--                </li>--}}
                 <li class="nav-item">
                     <a href="/">
                         <button type="button" class="btn btn-sm btn-info btn-round">
